@@ -1,2 +1,9 @@
-# requirements-pipeline
-requirements-pipeline/ ├─ sources/ │  ├─ templates/ │  └─ inputs/ ├─ extracted/ ├─ canonical/ ├─ derived/ ├─ tests/ │  └─ playwright/ ├─ src/ │  ├─ extract/ │  ├─ normalize/ │  ├─ derive/ │  ├─ validate/ │  └─ generate_tests/ ├─ config/ ├─ Jenkinsfile ├─ requirements.txt └─ README.md
+# Requirements Pipeline
+
+This repository contains a CI/CD pipeline that:
+- ingests business, functional and non-functional requirement documents
+- normalizes requirements into a canonical model
+- derives epics, features, stories, use cases
+- derives test scenarios and manual test cases
+- generates Playwright Python tests
+- executes tests through Jenkins
