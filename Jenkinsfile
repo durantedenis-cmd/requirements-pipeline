@@ -10,10 +10,10 @@ pipeline {
 
     stage('Setup Python') {
       steps {
-        sh '''
-          python3 -m venv .venv
-          . .venv/bin/activate
-          pip install --upgrade pip
+        bat '''
+          python -m venv .venv
+          call .venv\\Scripts\\activate
+          python -m pip install --upgrade pip
           pip install -r requirements.txt
         '''
       }
@@ -21,9 +21,9 @@ pipeline {
 
     stage('Extract Sources') {
       steps {
-        sh '''
-          . .venv/bin/activate
-          python src/extract/docling_extract.py
+        bat '''
+          call .venv\\Scripts\\activate
+          python src\\extract\\docling_extract.py
         '''
       }
     }
