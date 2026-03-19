@@ -1,9 +1,9 @@
-# docling
-# playwright
-# python-docx
-# openpyxl
-# pandas
-# pydantic
-# pytest
+docling
+playwright
+python-docx
+openpyxl
+pandas
+pydantic
+pytest
 pyyaml
-# requests
+requests
