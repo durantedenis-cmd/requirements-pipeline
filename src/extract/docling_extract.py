@@ -6,12 +6,16 @@ CONFIG_FILE = Path("config/sources.yaml")
 OUTPUT_FILE = Path("extracted/raw_extraction.json")
 
 def main():
+    if not CONFIG_FILE.exists():
+        raise FileNotFoundError(f"Missing config file: {CONFIG_FILE}")
+
     with CONFIG_FILE.open("r", encoding="utf-8") as f:
         config = yaml.safe_load(f)
 
-    active_sources = [s for s in config["sources"] if s.get("active")]
+    active_sources = [s for s in config.get("sources", []) if s.get("active")]
 
     result = {
+        "active_sources_count": len(active_sources),
         "active_sources": active_sources
     }
 
