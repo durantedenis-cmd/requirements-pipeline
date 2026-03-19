@@ -1,0 +1,20 @@
+sources:
+  - file: sources/templates/Business_Requirement.docx
+    type: business_template
+    active: false
+
+  - file: sources/templates/Functional_Requirement.docx
+    type: functional_template
+    active: false
+
+  - file: sources/templates/Non_Functional_Requirement.docx
+    type: non_functional_template
+    active: false
+
+  - file: sources/templates/Requirement_Matrix.xlsx
+    type: matrix_template
+    active: false
+
+  - file: sources/inputs/Projet d'accueil.docx
+    type: business_source
+    active: true
