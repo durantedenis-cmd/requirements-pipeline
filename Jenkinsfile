@@ -37,10 +37,10 @@ pipeline {
     }
     stage('Detect Deltas') {
       steps {
-      bat '''
-        call .venv\\Scripts\\activate
-        python src\\normalize\\detect_deltas.py
-      '''
+        bat '''
+          call .venv\\Scripts\\activate
+          python src\\normalize\\detect_deltas.py
+        '''
       }
     }
     stage('Generate Backlog Items') {
@@ -48,10 +48,10 @@ pipeline {
       OPENAI_API_KEY = credentials('openai-api-key')
     }
       steps {
-      bat '''
-        call .venv\\Scripts\\activate
-        python src\\derive\\generate_backlog_items.py
-      '''
+        bat '''
+          call .venv\\Scripts\\activate
+          python src\\derive\\generate_backlog_items.py
+        '''
       }
     }
     stage('Generate Test Design') {
@@ -59,26 +59,26 @@ pipeline {
       OPENAI_API_KEY = credentials('openai-api-key')
     }
       steps {
-      bat '''
-        call .venv\\Scripts\\activate
-        python src\\derive\\generate_test_design.py
-      '''
+        bat '''
+          call .venv\\Scripts\\activate
+          python src\\derive\\generate_test_design.py
+        '''
       }
     }
     stage('Install Playwright Browsers') {
       steps {
-      bat '''
-        call .venv\\Scripts\\activate
-        python -m playwright install
-      '''
+        bat '''
+          call .venv\\Scripts\\activate
+          python -m playwright install
+        '''
       }
     }
     stage('Run Playwright Tests') {
-      steps {
-       bat '''
-        call .venv\\Scripts\\activate
-        pytest tests\\playwright -q
-      '''
+        steps {
+         bat '''
+          call .venv\\Scripts\\activate
+          pytest tests\\playwright -q
+        '''
       }
     }
   }
