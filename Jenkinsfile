@@ -43,6 +43,28 @@ pipeline {
       '''
       }
     }
+    stage('Generate Backlog Items') {
+      environment {
+      OPENAI_API_KEY = credentials('openai-api-key')
+    }
+      steps {
+      bat '''
+        call .venv\\Scripts\\activate
+        python src\\derive\\generate_backlog_items.py
+      '''
+      }
+    }
+    stage('Generate Test Design') {
+      environment {
+      OPENAI_API_KEY = credentials('openai-api-key')
+    }
+      steps {
+      bat '''
+        call .venv\\Scripts\\activate
+        python src\\derive\\generate_test_design.py
+      '''
+      }
+    }
   }
 
   post {
