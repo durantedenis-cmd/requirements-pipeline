@@ -45,7 +45,7 @@ pipeline {
     }
     stage('Generate Backlog Items') {
       environment {
-      OPENAI_API_KEY = credentials('openai-api-key')
+      OPENAI_API_KEY = credentials('Jenkins-openai-api-key')
     }
       steps {
         bat '''
@@ -56,7 +56,7 @@ pipeline {
     }
     stage('Generate Test Design') {
       environment {
-      OPENAI_API_KEY = credentials('openai-api-key')
+      OPENAI_API_KEY = credentials('Jenkins-openai-api-key')
     }
       steps {
         bat '''
