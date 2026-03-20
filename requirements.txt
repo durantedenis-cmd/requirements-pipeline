@@ -1,9 +1,11 @@
+pyyaml
 docling
-# playwright
+openai
+playwright
+pytest
+
 # python-docx
 # openpyxl
 # pandas
 # pydantic
-# pytest
-pyyaml
 # requests
