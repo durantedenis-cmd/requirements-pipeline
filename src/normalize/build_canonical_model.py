@@ -50,11 +50,11 @@ def split_markdown_sections(markdown: str):
 
 
 def infer_requirement_type(source_type: str) -> str:
-    if source_type == "business_source" or source_type == "business_template":
+    if source_type in ["business_source", "business_template"]:
         return "business_requirement"
-    if source_type == "functional_template":
+    if source_type in ["functional_source", "functional_template"]:
         return "functional_requirement"
-    if source_type == "non_functional_template":
+    if source_type in ["non_functional_source", "non_functional_template"]:
         return "non_functional_requirement"
     if source_type == "matrix_template":
         return "matrix_requirement"
