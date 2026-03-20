@@ -18,3 +18,11 @@ sources:
   - file: sources/inputs/Projet d'accueil.docx
     type: business_source
     active: true
+
+  - file: sources/inputs/Fiche de soin (4).pages
+    type: business_source
+    active: true
+
+  - file: sources/inputs/Fiche de soin (5).pages
+    type: business_source
+    active: true
