@@ -21,9 +21,7 @@ def call_openai(requirements, use_cases):
 
     if not api_key:
         raise RuntimeError("Missing OPENAI_API_KEY environment variable.")
-    if not model:
-        raise RuntimeError("Missing OPENAI_MODEL environment variable.")
-
+    
     client = OpenAI(api_key=api_key)
 
     prompt = f"""
