@@ -43,28 +43,29 @@ pipeline {
         '''
       }
     }
-    stage('Generate Backlog Items') {
-      environment {
-      OPENAI_API_KEY = credentials('Jenkins-openai-api-key')
+   stage('Generate Backlog Items') {
+  steps {
+    withCredentials([string(credentialsId: 'openai-api-key', variable: 'OPENAI_API_KEY')]) {
+      bat '''
+        call .venv\\Scripts\\activate
+        set OPENAI_MODEL=gpt-5
+        python src\\derive\\generate_backlog_items.py
+      '''
     }
-      steps {
-        bat '''
-          call .venv\\Scripts\\activate
-          python src\\derive\\generate_backlog_items.py
-        '''
-      }
+  }
+
+
+stage('Generate Test Design') {
+  steps {
+    withCredentials([string(credentialsId: 'openai-api-key', variable: 'OPENAI_API_KEY')]) {
+      bat '''
+        call .venv\\Scripts\\activate
+        set OPENAI_MODEL=gpt-5
+        python src\\derive\\generate_test_design.py
+      '''
     }
-    stage('Generate Test Design') {
-      environment {
-      OPENAI_API_KEY = credentials('Jenkins-openai-api-key')
-    }
-      steps {
-        bat '''
-          call .venv\\Scripts\\activate
-          python src\\derive\\generate_test_design.py
-        '''
-      }
-    }
+  }
+
     stage('Install Playwright Browsers') {
       steps {
         bat '''
