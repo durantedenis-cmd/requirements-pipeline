@@ -65,6 +65,22 @@ pipeline {
       '''
       }
     }
+    stage('Install Playwright Browsers') {
+      steps {
+      bat '''
+        call .venv\\Scripts\\activate
+        python -m playwright install
+      '''
+      }
+    }
+    stage('Run Playwright Tests') {
+      steps {
+       bat '''
+        call .venv\\Scripts\\activate
+        pytest tests\\playwright -q
+      '''
+      }
+    }
   }
 
   post {
