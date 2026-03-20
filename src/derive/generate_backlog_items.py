@@ -19,7 +19,7 @@ def load_requirements():
 
 def call_openai(requirements):
     api_key = os.getenv("OPENAI_API_KEY")
-    model = os.getenv("OPENAI_MODEL")
+    model = os.getenv("OPENAI_MODEL", "gpt-5")
 
     if not api_key:
         raise RuntimeError("Missing OPENAI_API_KEY environment variable.")
