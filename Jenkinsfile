@@ -27,6 +27,14 @@ pipeline {
         '''
       }
     }
+    stage('Build Canonical Model') {
+      steps {
+        bat '''
+          call .venv\\Scripts\\activate
+          python src\\normalize\\build_canonical_model.py
+        '''
+      }
+    }
   }
 
   post {
