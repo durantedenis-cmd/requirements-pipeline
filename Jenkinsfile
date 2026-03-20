@@ -39,7 +39,7 @@ pipeline {
 
   post {
     always {
-      archiveArtifacts artifacts: 'extracted/*.json', fingerprint: true
+      archiveArtifacts artifacts: 'extracted/*.json, canonical/*.json', fingerprint: true
     }
   }
 }
