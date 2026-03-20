@@ -35,6 +35,14 @@ pipeline {
         '''
       }
     }
+    stage('Detect Deltas') {
+      steps {
+      bat '''
+        call .venv\\Scripts\\activate
+        python src\\normalize\\detect_deltas.py
+      '''
+      }
+    }
   }
 
   post {
